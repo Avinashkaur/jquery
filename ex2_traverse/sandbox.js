@@ -12,7 +12,7 @@ $(document).ready( function() {
   console.log($('#specials').find('#goButton')); 
   // Select the first list item in the #slideshow element; add the class "current" to it,
   //  and then add a class of "disabled" to its sibling elements. 
-  console.log($('#slideshow li:first').addClass('.current').siblings().each(function(){
-    $(this).addClass('.disabled');
+  console.log($('#slideshow li:first').addClass('current').siblings().each(function(){
+    $(this).addClass('disabled');
   }));
 });
