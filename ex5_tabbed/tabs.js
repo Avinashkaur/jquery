@@ -1,6 +1,6 @@
 $(document).ready( function () {
-  console.log($("div .module").css("display" , "none"));
-  $("div .module:first").css("display" , "block");
+  console.log($("div .module").hide());
+  $("div .module:first").show();
   var new_list = $("<ul></ul>");
   new_list.css("list-style-type" , "none");
   new_list.insertBefore("div .module:first");
@@ -15,7 +15,10 @@ $(document).ready( function () {
     });
     new_list.find('li').each(function() {
       $(this).click(function() {
-        var $itemToHide = $(this).parent().find('li.current');
+        $(this).siblings().each(function(){
+          $(this).data('associatedDiv').hide();
+        });
+        var $itemToHide = $(this).parent().find('.current');
         $itemToHide.each(function() {
           $(this).data('associatedDiv').hide();
           $(this).removeClass('current');
