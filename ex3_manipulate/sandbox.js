@@ -1,7 +1,14 @@
 $(document).ready( function() {
+
+  function addText(i) {
+    return function() {
+      var $text = "List Item: " + i;
+      return $text;
+    }
+  }
 // Add five new list items to the end of the unordered list #myList 
 for ( var i = 0; i < 5; i++) {
-  console.log($('<li>').appendTo('#myList'));
+  console.log($('<li></li>').appendTo('#myList').html(addText(i)));
 }
 //Remove the odd list items
 console.log($('#myList li:nth-child(odd)').remove());
