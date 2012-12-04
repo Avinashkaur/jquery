@@ -1,21 +1,26 @@
 $(document).ready( function() {
-  var inputText = $(".input_text");
   var labelText = $("label[for = 'q']");
-  var oldLabelText = labelText;
-  inputText.attr('value' , labelText.html());
-  inputText.addClass("hint");
+  $(".input_text").attr('value' , labelText.html());
+  $(".input_text").addClass("hint");
   labelText.detach();
-  console.log(inputText.focus(function() {
-    if (inputText.attr("value") == oldLabelText.html()) {
-      inputText.attr("value" , "");
-       inputText.removeClass("hint");
-    }
-    console.log(inputText.blur(function() {
-      var text_value = inputText.attr("value").trim();
+  
+  $(".input_text").each(function() {
+    var $value = this.value;
+    
+    $(this).focus(function() {
+      if (this.value == $value) {
+        $(this).attr("value" , "");
+        $(this).removeClass("hint");
+      }
+    });
+
+    $(this).blur(function() {
+    console.log(this.value);
+      var text_value = this.value.trim();
         if(text_value == "") {
-          inputText.attr("value" , oldLabelText.html());
-          inputText.addClass("hint");
+          this.value = $value;
+          $(this).addClass("hint");
         }
-    }));
-  }));
+    });
+  });
 });
