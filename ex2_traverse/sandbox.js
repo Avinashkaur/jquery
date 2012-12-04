@@ -3,8 +3,8 @@ $(document).ready( function() {
   $('img').each(function(i) {
     console.log(this.alt);
   });
-  //search input text box and traverse up to the form and class to the form
-  console.log($(".input_text").parent().attr('class' , 'searchbox'));
+  //search input text box and traverse up to the form and add a class to the form
+  console.log($('#search').addClass('searchbox').find('.input_text'));
   //Select the list item inside #myList that has a class of "current" 
   // and remove that class from it; add a class of "current" to the next list item.
   console.log($("#myList .current").removeClass('current').next('li').addClass('current'));
