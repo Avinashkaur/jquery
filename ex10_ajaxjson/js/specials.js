@@ -9,15 +9,17 @@ $(document).ready(function(){
         $.getJSON('data/specials.json' , function(data) {
             cached_JSON = data;
             
-            $div.html(cached_JSON[$value].title + "<br />" + cached_JSON[$value].text + "<br />" + cached_JSON[$value].color);
+            $div.html(cached_JSON[$value].title + "<br />" + cached_JSON[$value].text);
+            $div.css("background-color" , cached_JSON[$value].color);
             $img.attr("src" , cached_JSON[$value].image);
-            $img.insertAfter($div);
+            $img.appendTo($div);
         });
         $(this).change(function(){
             $value = $(this).val();
             $div.html(cached_JSON[$value].title + "<br />" + cached_JSON[$value].text);
+            $div.css("background-color" , cached_JSON[$value].color);
             $img.attr("src" , cached_JSON[$value].image);
-            $img.insertAfter($div);
+            $img.appendTo($div);
         });
     });
 });
