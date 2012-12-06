@@ -26,6 +26,7 @@ jQuery(document).ready(function($){
                   });
           }
   });
+  
   $("#rolesTable").delegate('.cancelButton' , 'click' , function() {
     var $role = $(this).attr("role");
     var $name = $(this).attr("value");

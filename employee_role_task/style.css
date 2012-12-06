@@ -1,8 +1,22 @@
-#rolesTable,#empNameTable  {
+#rolesTable {
   float:left;
   width:300px;
- 
   text-align: center;
+
+}
+ul {
+  padding-left:0px;
+}
+#empNameTable {
+  float:left;
+  width:300px;
+  text-align: center;
+  margin:auto 30px;
+ 
+}
+#empNameTable ul {
+  height: 90px;
+  overflow:scroll;
 
 }
 #toDosTable {
