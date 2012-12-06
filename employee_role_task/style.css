@@ -1,0 +1,69 @@
+#rolesTable,#empNameTable  {
+  float:left;
+  width:300px;
+ 
+  text-align: center;
+
+}
+#toDosTable {
+  float:left;
+  width:600px;
+ 
+  text-align: center;
+}
+.empName, .ror, .android, .js {
+  border: solid 1px;
+  margin: 1px;
+}
+ul {
+  list-style-type: none;
+}
+.ror ul, .android ul, .js ul {
+  padding-left: 0px;
+}
+.newRow {
+  border: solid 1px;
+  margin: 1px;
+  background-color: #e3e3e2;
+
+}
+.hoverItem:hover {
+  /*background-image:url("hover.jpg");*/
+  background-color: yellow;
+}
+.plusButton {
+  height:15px;
+  width:15px;
+  float:right;
+  margin:2px;
+}
+.nameLabel {
+  border: solid 1px;
+  padding:2px 10px;
+  float:left;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.toDoDiv {
+  float:right;
+  border: solid 1px;
+  height:120px;
+  margin-right:10px;
+  margin-top:10px;
+  width:400px;
+  overflow: scroll;
+}
+.newRowToDo {
+  border: solid 1px;
+  margin: 1px;
+  background-color: #e3e3e2;
+  height: 150px;
+
+}
+.headerButton {
+  height:15px;
+  width:15px;
+  float:right;
+  margin:2px;
+
+}
