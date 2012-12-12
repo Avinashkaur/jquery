@@ -1,5 +1,5 @@
-$.noConflict();
-jQuery(document).ready(function($){
+//drag items from employee table to roles table.
+function dragAndDropItem(){
   $(".empName").each(function(){
     $(this).draggable({helper : "clone"});
   });
@@ -26,8 +26,9 @@ jQuery(document).ready(function($){
                   });
           }
   });
-  
-  $("#rolesTable").delegate('.cancelButton' , 'click' , function() {
+}
+//employee name is deleted on click of cancel button
+$("#rolesTable").delegate('.cancelButton' , 'click' , function() {
     var $role = $(this).attr("role");
     var $name = $(this).attr("value");
     if(confirm("Are You sure you want to delete " + $name)) {
@@ -36,7 +37,7 @@ jQuery(document).ready(function($){
       $(this).closest('li').remove();
     }
   });
-
+//Updation of ToDo table
   function updateToDo(roleHeader, memberName, newClassName) {
     var $li = $("<li></li>");
     var $labelName = $("<label></label>");
@@ -68,20 +69,23 @@ jQuery(document).ready(function($){
         $(this).closest('div').find(".divToDoContainer");
         $newDivToDo.appendTo($(this).closest('div').find(".divToDoContainer"));
       });
-    }
+  }
+//save to Do item
 $("#toDosTable").delegate(".saveButton","click",function(){
   $(this).closest('div').find(".task").replaceWith($("<label></label>").addClass("emptask").text($(this).closest('div').find(".task").val()));
   $(this).replaceWith($("<input/>").attr('type','image').attr('src' , 'images/edit.jpg').addClass("editButton"));
 });
+//edit To do item
 $("#toDosTable").delegate(".editButton","click",function(){
   $(this).closest('div').find(".emptask").replaceWith($("<input/>").attr('type' , 'text').addClass("task").val($(this).closest('div').find(".emptask").text()));
   $(this).replaceWith($("<input/>").attr('type','image').attr('src' , 'images/save.jpg').addClass("saveButton"));
 });
+//delete TO do item
 $("#toDosTable").delegate(".deleteButton","click",function() {
   $(this).closest('div').remove();
   
 });
-
+//accepts backspaces,arrow keys,numbers
 $('body').delegate("#searchbox","keydown",function(eventObject){
   var key = eventObject.charCode || eventObject.keyCode || 0;
   return (
@@ -92,6 +96,7 @@ $('body').delegate("#searchbox","keydown",function(eventObject){
     (key >= 48 && key <= 57) ||
     (key >= 96 && key <= 105));
   });
+//search ToDO table for corresponding number of todos
 $('#searchbutton').click(function(){
   $('#toDosTable').find(".divToDoContainer").each(function() {
     var counter = 0;
@@ -115,6 +120,7 @@ $('#searchbutton').click(function(){
     }
   });  
 });
+//expand/collapse whole ToDo list
 $('#expandAll').toggle(function() {
   $('#toDosTable .innerList').show();
   $('#toDosTable .headerButton').attr("src" , "images/1.jpg");
@@ -123,15 +129,16 @@ function() {
    $('#toDosTable .innerList').hide();
    $('#toDosTable .headerButton').attr("src" , "images/5.jpg");
 });
+//cancel button on employees on empTable
 $("#empNameTable").delegate("li" , "mouseenter" , function() {
   $(this).find(".cancelButton").show();
 });
 $("#empNameTable").delegate("li" , "mouseleave" , function() {
   $(this).find(".cancelButton").hide();
 });
+//deletion of employees from empTable
 $("#empNameTable li").delegate(".cancelButton" , "click" , function() {
   $("#rolesTable li[employee=" + $(this).closest('li').attr("emp") + "]").detach();
   $("#toDosTable li[empname=" + $(this).closest('li').attr("emp") + "]").detach();
   $(this).closest('li').remove();
-});
 });

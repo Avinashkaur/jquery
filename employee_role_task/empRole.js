@@ -1,8 +1,9 @@
-$.noConflict();
-jQuery(document).ready(function($){
+//drag items from employee table to roles table.
+function dragAndDropItem() {
   $(".empName").each(function(){
     $(this).draggable({helper : "clone"});
   });
+  
   $("#rolesTable .ror,.android,.js").droppable({
           drop: function(event, ui) {
                   var $li = $("<li></li>");
@@ -26,8 +27,9 @@ jQuery(document).ready(function($){
                   });
           }
   });
-  
-  $("#rolesTable").delegate('.cancelButton' , 'click' , function() {
+}
+//employee name is deleted on click of cancel button
+$("#rolesTable").delegate('.cancelButton' , 'click' , function() {
     var $role = $(this).attr("role");
     var $name = $(this).attr("value");
     if(confirm("Are You sure you want to delete " + $name)) {
@@ -35,8 +37,9 @@ jQuery(document).ready(function($){
       $("#toDosTable .innerList li[name=" + $role + "][empname=" + $name + "]").remove();
       $(this).closest('li').remove();
     }
-  });
-  function updateToDo(roleHeader, memberName, newClassName) {
+});
+//Updation of ToDo table
+function updateToDo(roleHeader, memberName, newClassName) {
     var $li = $("<li></li>");
     var $labelName = $("<label></label>");
     var $divToDo = $("<div></div>");
@@ -62,5 +65,4 @@ jQuery(document).ready(function($){
           $(this).attr("src" , "images/1.jpg");
       });
     });
-  }
-});
+}

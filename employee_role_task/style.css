@@ -11,16 +11,18 @@ ul {
   float:left;
   width:300px;
   text-align: center;
-  margin:auto 30px;
+  margin:auto 400px;
+  position:fixed;
  
 }
 #empNameTable ul {
   height: 90px;
-  overflow:scroll;
+ 
+ 
 
 }
 #toDosTable {
-  float:left;
+ float:right;
   width:600px;
  
   text-align: center;
