@@ -4,7 +4,7 @@ function dragAndDropItem() {
     $(this).draggable({helper : "clone"});
   });
   
-  $("#rolesTable .ror,.android,.js").droppable({
+  $("#rolesTable ul > li").droppable({
           drop: function(event, ui) {
                   var $li = $("<li></li>");
                   var $imgButton = $("<input/>");

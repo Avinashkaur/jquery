@@ -3,7 +3,7 @@ function dragAndDropItem(){
   $(".empName").each(function(){
     $(this).draggable({helper : "clone"});
   });
-  $("#rolesTable .ror,.android,.js").droppable({
+  $("#rolesTable ul > li").droppable({
           drop: function(event, ui) {
                   var $li = $("<li></li>");
                   var $imgButton = $("<input/>");
@@ -85,7 +85,7 @@ $("#toDosTable").delegate(".deleteButton","click",function() {
   $(this).closest('div').remove();
   
 });
-//accepts backspaces,arrow keys,numbers
+//accepts backspaces,arrow keys,num keys 
 $('body').delegate("#searchbox","keydown",function(eventObject){
   var key = eventObject.charCode || eventObject.keyCode || 0;
   return (
