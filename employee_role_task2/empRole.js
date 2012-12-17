@@ -7,7 +7,7 @@ function dragAndDropItem(){
           drop: function(event, ui) {
                   var $li = $("<li></li>");
                   var $imgButton = $("<input/>");
-                  $imgButton.addClass("cancelButton").attr('type' , 'image').attr('src' , 'images/button.jpg').hide();
+                  $imgButton.addClass("cancelButton").attr('type' , 'image').attr('src' , 'images/button.jpg').css('visibility','hidden');
                   var $value = $(ui.draggable).text();
                   var $role = $(this).text().split(/\n/);
                   var $className = $(this).find('ul').attr("class");
@@ -19,12 +19,12 @@ function dragAndDropItem(){
                         updateToDo($role[0], $value, $className);
                       }
                   $(this).find("ul li").mouseenter(function() {
-                    // console.log($(this).closest('ul').find('li').addClass("Hover"));
-                    $(this).find(".cancelButton").show();
+                    console.log($(this).closest('ul').find('li').addClass("Hover"));
+                    $(this).find(".cancelButton").css('visibility','visible');
                   });
                   $(this).find("ul li").mouseleave(function() {
-                    // $(this).closest('ul').find('li').removeClass('Hover');
-                    $(this).find(".cancelButton").hide();
+                    $(this).closest('ul').find('li').removeClass('Hover');
+                    $(this).find(".cancelButton").css('visibility','hidden');
                   });
           }
   });
@@ -70,11 +70,11 @@ $("#rolesTable").delegate('.cancelButton' , 'click' , function() {
         var $newDivToDo = $("<div></div>");
         $newDivToDo.addClass("newDivToDo");
         $("<input/>").attr('type' , 'text').addClass("task").appendTo($newDivToDo);
-        $("[src='images/save.jpg']").prev().last().focus();
         $("<input/>").attr('type','image').attr('src' , 'images/save.jpg').addClass("saveButton").appendTo($newDivToDo);
         $("<input/>").attr("type","image").attr("src","images/button.jpg").addClass("deleteButton").appendTo($newDivToDo);
         $(this).closest('div').find(".divToDoContainer");
         $newDivToDo.appendTo($(this).closest('div').find(".divToDoContainer"));
+        $("[src='images/save.jpg']").prev().last().focus();
       });
 }
 //save to Do item
@@ -134,10 +134,10 @@ function() {
 });
 //cancel button on employees on empTable
 $("#empNameTable").delegate("li" , "mouseenter" , function() {
-  $(this).find(".cancelButton").show();
+  $(this).find(".cancelButton").css("visibility","visible");
 });
 $("#empNameTable").delegate("li" , "mouseleave" , function() {
-  $(this).find(".cancelButton").hide();
+  $(this).find(".cancelButton").css("visibility","hidden");
 });
 //deletion of employees from empTable
 $("#empNameTable li").delegate(".cancelButton" , "click" , function() {
