@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link href = "style.css" type = "text/css" rel = "stylesheet" />
+  </head>
+  <body>
+    <div id = "header">
+      <ul id = "header_list">
+        <li class = "list_item"><a id = "product_link">Products</a></li>
+        <li class = "list_item"><a id = "cart_link">My Cart(<label id = "numberofitems">0</label>)</a></li>
+      </ul>
+    </div>
+
+    <div class = "content_page">
+      <div id = "search_options"> <!--tag for search options-->
+        <label class = "labels">Search:</label>&nbsp;
+        <input type = "text" class = "textboxes" />&nbsp;
+        <input type = "button" value = "Search" id = "searchbutton" class = "buttons1" />&nbsp;
+        <input type = "button" value = "Clear" id = "clearsearch" class = "buttons1" />&nbsp;
+        <label class = "labels">Category</label>&nbsp;
+        <select>
+          <option>All</option>
+          <option>Computers</option>
+          <option>Tablets</option>
+          <option>Smartphones</option>
+          <option>Ultrabooks</option>
+          <option>Cameras</option>
+        </select>
+      </div>
+      <div id = "items">
+        <ul id = "itemslist">
+        </ul>
+      </div>
+    </div>
+
+    <div class = "content_page">
+      <ul id = "cartheadings">
+      </ul>
+    </div>
+
+    <div id = "footer">
+      <input type = "button" value = "Checkout" id = "outButton" />
+      <input type = "text" id = "totalprice" value = '0'/>&nbsp;&nbsp;
+      <label id = "total_name" >Total:</label>&nbsp;
+    </div>
+    <script type="text/javascript" src="jquery-1.5.1.js"></script>
+    <script type="text/javascript" src="product_source.js">  </script>
+  </body>
+</html>

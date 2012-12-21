@@ -1,0 +1,268 @@
+/*css for index.html*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#header {
+  width:1024px;
+  height: 40px;
+  position:relative;
+  margin: 1px auto;
+  background-color: #e5e5e3;
+  border: solid 1px #747462;
+}
+#header ul {
+  list-style-type: none;
+  margin-top: 16px;
+  position:absolute;
+}
+.list_item {
+  float:left;
+  width: 200px;
+}
+.list_item a {
+  text-decoration: none;
+  margin: 2px 4px 1px;
+  padding: 5px 50px;
+  width: 200px;
+  background-color:white;
+  color: #747462;
+  text-align: center;
+  font: Tahoma 15px;
+  border-top: solid 1px #747462;
+  border-left:solid 1px #747462;
+  border-right: solid 1px #747462;
+  border-bottom: none;
+}
+.list_item a:hover {
+  background-color: #e5e5e3;
+  font-weight: bold;
+  margin: 2px 2px 0px;
+  width: 200px;
+  padding: 5px 47px;
+  border-bottom: solid 1px #e5e5e3;
+}
+.content_page {
+  width:1020px;
+  height:auto;
+  margin: 0px auto;
+  position:relative;
+}
+#footer {
+  background-color: #e5e5e3;
+  border: solid 1px #747462;
+  height: 50px;
+  width: 1024px;
+  margin: 0px auto;
+}
+#total_name {
+  float:right;
+  margin: 10px;
+  padding:5px;
+}
+#totalprice {
+  width:100px;
+  height: 30px;
+  float:right;
+  margin: 10px;
+  border: solid 1px #747462;
+  color:black;
+}
+#outButton {
+  background-color: #616152;
+  color: white;
+  font: 15px Tahoma;
+  float:right;
+  margin:5px 10px 5px 5px;
+  padding: 5px 15px;
+}
+#search_options {
+  background-color: #e5e5e3;
+  padding:2px 5px;
+}
+.labels {
+  font: 15px Tahoma;
+}
+.textboxes {
+  border: solid 1px #747462;
+}
+.buttons , .buttons1 {
+  background-color: white;
+  font: 15px Tahoma;
+  color: #747462;
+  border: solid 1px #747462;
+  padding: 2px 20px;
+
+}
+
+#list {
+  list-style-type: none;
+  margin-top: 2px;
+}
+#items ul {
+  list-style-type: none;
+}
+#items ul li {
+  padding:5px 5px 10px;
+  background-color: #e5e5e3;
+  margin: 2px;
+  /*height: 40px;*/
+  height: auto;
+}
+/*..................................*/
+
+#cart li, #cartheadings li {
+  list-style-type: none;
+  padding:5px 5px 10px;
+  background-color: #e5e5e3;
+  margin: 2px;
+  height: 40px;
+  width: 1010px;
+
+}
+#productLabel {
+  width:450px;
+  float:left;
+}
+#priceLabel {
+  width:150px;
+  float:left;
+}
+#quantityLabel {
+  width:100px;
+  float:left;
+}
+#subTotalLabel {
+  width:150px;
+  float:left;
+}
+.imagecell {
+  display:table-cell;
+  width:100px;
+}
+.prod_image {
+  height:100px;
+  display:inline;
+  margin:2px;
+  padding-top:10px;
+  padding-left:10px;
+}
+.infocell {
+  display:table-cell;
+  width:500px;
+  vertical-align:top;
+  padding-top:10px;
+}
+.caption_label {
+  font:bold 15px Tahoma;
+  padding-top:2px;
+  padding-bottom:2px;
+  margin-left:2px;
+  width:300px;
+}
+.categorylabel {
+  font:15px Tahoma;
+  color:#747462;
+  margin-left:5px;
+  display:block;
+  padding-bottom:2px;
+  padding-top:2px;
+}
+.describe {
+  padding:2px;
+  font:12px Tahoma;
+  text-align:justify;
+  color:#747462;
+  display:block;
+  margin-left:5px;
+}
+.pricelabel {
+  font:bold 15px Tahoma;
+  display:inline;
+  margin-left:5px;
+  padding-top:2px;
+}
+.itemprice {
+  font:bold 15px Tahoma;
+  padding-top:2px;
+  display:inline;
+}
+.quantitycell {
+  display:table-cell;
+  width:200px;
+  vertical-align:top;
+  padding-top:10px;
+  padding-left:20px;
+}
+.quantitybox {
+  border:solid 1px #747462;
+  width:30px;
+}
+.addToCartCell {
+  display:table-cell;
+  vertical-align:top;
+  padding-top:10px;
+  padding-left:10px;
+  width:105px;
+}
+.addToCartButton {
+  background-color:white;
+  font:15px Tahoma;
+  color:#747462;
+  border:solid 1px #747462;
+  padding-top:2px;
+  padding-bottom:2px;
+  width:100px;
+}
+.listitem {
+  padding-top:5px 5px 10px 5px;
+  margin:2px;
+  background-color:#e5e5e3;
+  height:115px;
+  width:1010px;
+  display:table;
+}
+.showProductCell {
+  width:450px;
+  display:table-cell;
+  margin-right:1px;
+  vertical-align:top;
+}
+.showImage {
+  width:50px;
+  height:40px;
+  border:solid 1px #747462;
+  margin:2px;
+}
+.showCaption {
+  width:200px;
+  font:bold 12px Tahoma;
+}
+.showPriceCell {
+  width:150px;
+  display:table-cell;
+}
+.showQuantityCell {
+  display:table-cell;
+  margin-left:1px;
+  width:100px;
+}
+.showQuantity {
+  width:50px;
+}
+.showSubtotalCell {
+  display:table-cell;
+  margin-left:1px;
+  width:150px;
+}
+.removeButtonCell {
+  display:table-cell;
+  margin-left:1px;
+}
+.showListItem {
+  width:1010px;
+  background-color:#e5e5e3;
+  margin-top:2px;
+  display:table;
+}
