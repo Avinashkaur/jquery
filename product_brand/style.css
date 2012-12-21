@@ -1,0 +1,18 @@
+.imageDisplay {
+  height: 100px;
+  width: 100px;
+}
+#products_display {
+  float:right;
+  width:600px;
+}
+#list_items_brand, #list_items_color {
+  height:150px;
+  width: 250px;
+  float:left;
+}
+#show_avail {
+  width:150px;
+  float:left;
+
+}
