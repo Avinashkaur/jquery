@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href = "style.css" type = "text/css" rel = "stylesheet"/>
+  </head>
+  <body>
+    <div>
+      <label>Search</label>
+      <input type = "text" id = "searchbox" value="0"/>
+      <input type = "button" id = "searchbutton" value = "Search"/>
+    </div>
+    <div id = "rolesTable">
+        <ul>Roles
+          <li name = "ROR">ROR
+            <ul class = "ROR">
+            </ul>
+          </li>
+          <li name = "Android">Android
+            <ul class = "Android">
+            </ul>
+          </li>
+          <li name = "JS">JS
+            <ul class = "JS">
+            </ul>
+          </li>
+          <li name = "jquery">jquery
+            <ul class = "jquery">
+            </ul>
+          </li>
+        </ul>
+      
+    </div>
+    <div id = "empNameTable">
+        <ul>Employee
+          <li class = "empName" emp = "Akhil"><input type="image" src="images/button.jpg" class = "cancelButton" style="visibility:hidden"/>Akhil</li>
+          <li class = "empName" emp = "RD"><input type="image" src="images/button.jpg" class = "cancelButton" style="visibility:hidden"/>RD</li>
+          <li class = "empName" emp = "Amit"><input type="image" src="images/button.jpg" class = "cancelButton" style="visibility:hidden"/>Amit</li>
+          <li class = "empName" emp = "Alok"><input type="image" src="images/button.jpg" class = "cancelButton" style="visibility:hidden"/>Alok</li>
+        </ul>
+    </div>
+     <div id = "toDosTable">
+      <ul>ToDo<input type = "image" src = "images/5.jpg" class = "headerButton" id = "expandAll"/>
+        <li class = "ROR">
+          <label class = "toDo" value = "ROR">ROR</label>
+          <input type = "image" src = "images/5.jpg" class = "headerButton" />
+            <ul class = "innerList">
+            </ul>
+          </li>
+          <li class = "Android">
+            <label class = "toDo" value = "Android">Android</label>
+            <input type = "image" src = "images/5.jpg" class = "headerButton"/>
+            <ul class = "innerList">
+            </ul>
+          </li>
+          <li class = "JS">
+            <label class = "toDo" value = "JS">JS</label>
+            <input type = "image" src = "images/5.jpg" class = "headerButton"/>
+            <ul class = "innerList">
+            </ul>
+          </li>
+          <li class = "jquery">
+            <label class = "toDo" value = "jquery">jquery</label>
+            <input type = "image" src = "images/5.jpg" class = "headerButton"/>
+            <ul class = "innerList">
+            </ul>
+          </li>
+        </ul>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src = "empRole.js"></script>
+    
+  </body>
+</html>
