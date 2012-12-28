@@ -10,10 +10,30 @@ function loadJSON() {
         "sold_out" : val.sold_out
       }
     });
-    for (var i = 0; i < items.length; i++) {
-      $("<img/>").attr("src",items[i].url).addClass("imageDisplay").appendTo("#products_display");
-    }
+    display_all(items);
   });
+}
+function checked_item ($listname, $attr1, $attr2) {
+  $("#products_display").html("");
+  for (var i = 0; i < items.length; i++) {
+    if ($listname == "list_items_brand" || $listname == "list_items_color") {
+      if (($attr1 == items[i].brand || $attr1 == items[i].color) && ($attr2 == items[i].brand || $attr2 == items[i].color)) {
+        $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
+      }
+      else if ($attr2 == "" && $attr1 == items[i].brand) {
+        $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
+      }
+      else if ($attr2 == "" && $attr1 == items[i].color) {
+        $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
+      }
+    }
+  }
+}
+function display_all($arrayToShow) {
+  $("#products_display").html("");
+  for (var i = 0; i < $arrayToShow.length; i++) {
+    $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",$arrayToShow[i].url));
+  }
 }
 $('body div:lt(2)').delegate('input' , "click" , function() {
   //to uncheck all other checkboxes other than the clicked one
@@ -21,52 +41,23 @@ $('body div:lt(2)').delegate('input' , "click" , function() {
     $(this).attr("checked",false);
   })
   if ($(this).is(":checked")) {
-    $("#products_display").html("");
     var $checkedItem = $(this);
     $(this).closest('div').siblings('div:has(input[type="checkbox"])').each(function() {
       if($(this).find("input:checked").length != 0) {
-        for (var i = 0; i < items.length; i++) {
-          if ($checkedItem.closest('div').attr('id') == "list_items_brand") {
-            if (($checkedItem.attr('id') == items[i].brand) && ($(this).find("input:checked").attr("id")) == items[i].color) {
-              $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
-            }
-          }
-          else if ($checkedItem.closest('div').attr('id') == "list_items_color") {
-            if (($checkedItem.attr('id') == items[i].color) && ($(this).find("input:checked").attr("id")) == items[i].brand) {
-              $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
-            }
-          }
-        }
+        checked_item($checkedItem.closest('div').attr('id'), $checkedItem.attr('id'), $(this).find("input:checked").attr("id"));
       }
       else if ($(this).find("input:checked").length == 0) {
-        for (var i = 0; i < items.length; i++) {
-          if (($checkedItem.closest('div').attr("id") == "list_items_brand") && ($checkedItem.attr("id") == items[i].brand)) {
-            $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
-          }
-          else if (($checkedItem.closest('div').attr("id") == "list_items_color") && ($checkedItem.attr("id") == items[i].color)) {
-            $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
-          }
-        }
+        checked_item($checkedItem.closest('div').attr("id"), $checkedItem.attr("id"), "");
       }
     });
   }
   else if ($(this).not(":checked")) {
     $(this).closest('div').siblings('div:has(input[type="checkbox"])').each(function() {
-      for (var i = 0; i < items.length; i++) {
-        if ($(this).find("input:checked")) {
-          if ($(this).attr('id') == "list_items_brand" && $(this).find("input:checked").attr('id') == items[i].brand) {
-           $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
-          }
-          else if ($(this).attr('id') == "list_items_color" && $(this).find("input:checked").attr('id') == items[i].color) {
-            $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
-          }
-        }
-        if (($(this).find("input").not(":checked").length) == 4) {
-          $("#products_display").html("");
-          for (var i = 0; i < items.length; i++) {
-            $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",items[i].url));
-          }
-        }
+      if ($(this).find("input:checked")) {
+        checked_item($(this).attr('id'), $(this).find("input:checked").attr('id'), "");
+      }
+      if (($(this).find("input").not(":checked").length) == 4) {
+        display_all(items);
       }
     });
   }
@@ -81,9 +72,6 @@ $("#available_products").click(function() {
       }
     }
   });
-  $("#products_display").html("");
-  for (var i = 0; i < $avail_array.length; i++) {
-    $("#products_display").append($("<img/>").addClass("imageDisplay").attr("src",$avail_array[i].url));
-  }
+  display_all($avail_array);
 });
 loadJSON();
