@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	</head>
+	<body>
+		<div class="f-left">
+			<div id = "brand" class="list_items f-left">
+				<span class="product_group f-left">Show products by brand</span><br />
+	      <input type="checkbox" value = "BRAND A" />Brand A<br />
+	      <input type="checkbox" value = "BRAND B" />Brand B<br />
+	      <input type="checkbox" value = "BRAND C" />Brand C<br />
+	      <input type="checkbox" value = "BRAND D" />Brand D<br />
+	    </div>
+	    <div id = "color" class="list_items f-left">
+	    	<span class="product_group f-left">Show products by color</span><br />
+	      <input type="checkbox" value = "Red" />Red<br />
+	      <input type="checkbox" value = "Yellow" />Yellow<br />
+	      <input type="checkbox" value = "Blue" />Blue<br />
+	      <input type="checkbox" value = "Green" />Green<br />
+	    </div>
+	    <div id = "latest" class="list_items f-left">
+	    	<span class="product_group f-left">Latest?</span><br />
+	      <input type="checkbox" value = "yes" />Yes<br />
+	      <input type="checkbox" value = "no" />No<br />
+	    </div>
+	    <input type="button" value="Available products" id="available_products"/>
+	  </div>
+   	<ul id="products_display">
+    </ul>
+		<script type="text/javascript" src="js/jquery-1.5.1.js"></script>
+		<script type="text/javascript" src="js/filter_products.js"></script>
+	</body>
+</html>

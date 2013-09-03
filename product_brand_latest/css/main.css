@@ -1,0 +1,6 @@
+.f-left { float: left;}
+#products_display  { list-style-type: none;}
+#products_display li { float: left;}
+#products_display li img { width: 100px; height: 100px; }
+.list_items { margin-bottom: 10px; width: 100%;}
+.product_group { font-size: 16px; font-weight: bold; margin-top: 10px; width: 100%; }
