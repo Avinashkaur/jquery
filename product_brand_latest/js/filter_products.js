@@ -11,11 +11,11 @@ var loadJSON = function() {
         "latest" : val.latest
       }
     });
-    showAllProducts(items);
+    displayProducts(items);
   });
 }
 
-var showAllProducts  = function(products) {
+var displayProducts  = function(products) {
 	$.each(products, function(key, val) {
 		var newLi = $("<li />").attr("data-brand", val.brand).attr("data-color", val.color).attr("data-sold", val.sold_out);
 		$("<img />").attr("src", val.url).appendTo(newLi);
@@ -35,7 +35,7 @@ var showSelectedItems = function(element) {
     });
     options.push(opts);
 	});
-	newArr = jQuery.map(elements, function(n) { return n });
+	flattenedArray = jQuery.map(elements, function(n) { return n });
 	
 	recursiveSearch = function(text, depth) {
 		text = text || "";
@@ -50,7 +50,7 @@ var showSelectedItems = function(element) {
 	}
 	recursiveSearch();
 	$('#products_display li').hide();
-	showProducts(newArr, 0);	
+	showProducts(flattenedArray, 0);	
 	showProducts(possibles, 1);
 }
 
@@ -58,6 +58,7 @@ var showProducts = function(array, hideAll) {
 	console.log(array);
 	var len = array.length;
 	if (hideAll && len) { $('#products_display li').hide(); }
+	if ( !(hideAll) && !(len)) { $('#products_display li').show(); }
 	$.each(array, function(index, val) {
 		$('#products_display li' + val).show();
 	});
