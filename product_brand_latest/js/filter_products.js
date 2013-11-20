@@ -11,12 +11,14 @@ var loadJSON = function() {
         "latest" : val.latest
       }
     });
+    console.log(items);
     displayProducts(items);
   });
 }
 
 var displayProducts  = function(products) {
 	$.each(products, function(key, val) {
+		// console.log(products[key]);
 		var newLi = $("<li />").attr("data-brand", val.brand).attr("data-color", val.color).attr("data-sold", val.sold_out);
 		$("<img />").attr("src", val.url).appendTo(newLi);
 		newLi.appendTo("#products_display");
@@ -26,15 +28,16 @@ var displayProducts  = function(products) {
 var showSelectedItems = function(element) {
 	var options = [], elements = [], possibles = [];
 
-	jQuery('.list_items').each(function() {
+	$('.list_items').each(function() {
     opts = [];
-    jQuery('input:checked', this).each(function() {
+    $('input:checked', this).each(function() {
         parentId = $(this).parent('.list_items').attr('id');
-        opts.push("[data-" + parentId + "='" + jQuery(this).attr('value') + "']");
+        opts.push("[data-" + parentId + "='" + $(this).attr('value') + "']");
         elements.push(opts);
     });
     options.push(opts);
 	});
+	console.log(options)
 	flattenedArray = jQuery.map(elements, function(n) { return n });
 	
 	recursiveSearch = function(text, depth) {
