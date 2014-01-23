@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/filter_and_sort.js"></script>
   </head>        
   <body>
     <div id="filter_container">  
@@ -57,10 +59,16 @@
           </li>
         </ul>
       </div>
+      <div>
+        <select id="sort_by_filter">
+          <option selected>Sort By:</option>
+          <option value="brand">Brand</option>
+          <option value="color">Colour</option>
+          <option value="sold_out">Availability</option>
+        </select>
+      </div>
     </div>
     <div id="products_display">
-    </div>        
-    <script src="js/jquery-1.5.1.js"></script>
-    <script src="js/filter.js"></script>
+    </div>
   </body>        
 </html>
