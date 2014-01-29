@@ -1,0 +1,14 @@
+.disable { color:#acacac; text-decoration:none; cursor:default; }
+.full-width { width:100%; }
+.fl { float:left; }
+a { text-decoration:none; }
+.selected { color:#fff; background:#acacac!important; }
+#filter_container { width:30%; float: left;}
+.filters  { list-style-type: none;}
+#products_display { width:43%; float: left; min-height:206px; /*overflow:hidden;*/ }
+#products_display ul { width:100%; list-style-type:none; padding:0px; margin:0px; }
+#products_display ul li { float:left; }
+#products_display img { width:100px; height:100px; }
+.pagination [name=prev], .pagination [name=next] { width:75px; float:left; text-align:center; background:#000; color:#fff; }
+.pagination #show-indexes { margin:10px auto; display:inline-block; }
+.pagination #show-indexes a, .pagination #show-indexes span { padding:3px 4px; /*float:left; */}
