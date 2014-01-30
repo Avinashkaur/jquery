@@ -68,16 +68,14 @@ Store.prototype = {
 
     $("#show-indexes").delegate('a', 'click', function() {
       var value = Number($(this).text());
-      console.log(value);
-      console.log(this_object.current_page);
+      
+      this_object.current_page = value - 1;
 
-      // if (value < this_object.current_page) {
-      //   this_object.current_page = value;
-      //   this_object.prevPage();
-      // }
       if (value > this_object.current_page) {
-        this_object.current_page = value;
-        this_object.nextPage();
+        this_object.nextPage($('.pagination a[name=next]'));
+      }
+      else {
+        this_object.nextPage($('.pagination a[name=prev]'));
       }
 
     });
@@ -187,15 +185,14 @@ Store.prototype = {
     $.each(unselected_pages, function(key, value) {
       this_object.enableLink($(value)) ;
       $(value).removeClass('selected');
-    })
-
+    });
   },
 
   enableLink: function(element) {
     if (element.length) {
       var new_element = this.replaceElement(element, $('<a/>'));
       new_element.removeClass('disable');
-      console.log(new_element.removeClass('selected'));
+      new_element.removeClass('selected');
     }
   },
 
@@ -203,7 +200,7 @@ Store.prototype = {
     if (element.length) {
       var new_element = this.replaceElement(element, $('<span/>'));
       new_element.addClass('disable');
-      console.log(new_element.addClass('selected'));
+      new_element.addClass('selected');
     }
   },
 
@@ -225,11 +222,11 @@ Store.prototype = {
   },
 
   nextPage: function(element) {
-
     if (this.current_page < this.total_pages) {
       this.enableLink($(".pagination").find("span[name='prev']"));
       var start_item = this.item_per_page * this.current_page;
       var end_item = start_item + this.item_per_page;
+      console.log(this.current_page);
       this.showNextSlot(start_item, end_item);
       this.current_page++;
     }
