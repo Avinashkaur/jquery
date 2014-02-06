@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/filter_and_sort.js"></script>
-  </head>        
+    <link rel="stylesheet" type="text/css" href="styles/products_filter_sort.css" />
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="js/products_filter_sort.js"></script>
+  </head>
   <body>
-    <div id="filter_container">  
-      <div>
-        Brands
-        <ul class="filters">
-          <li>
-            <input type="checkbox" value="BRAND A" key="brand" id="brand_a" /> 
-            <label for="brand_a">Brand A</label>
-          </li>
-          <li>
-            <input type="checkbox" value="BRAND B" key="brand" id="brand_b" /> 
-            <label for="brand_b">Brand B</label>
-          </li>
-          <li>
-            <input type="checkbox" value="BRAND C" key="brand" id="brand_c" /> 
-            <label for="brand_c">Brand C</label>
-          </li>
-          <li>
-            <input type="checkbox" value="BRAND D" key="brand" id="brand_d" /> 
-            <label for="brand_d">Brand D</label>
-          </li>
-        </ul>
-      </div>
-      <div>
-        Colors
-        <ul class="filters">
-          <li>
-            <input type="checkbox" value="Yellow" key="color" id="yellow" /> 
-            <label for="yellow">Yellow</label>
-          </li>        
-           <li>
-              <input type="checkbox" value="Green" key="color" id="green"/> 
-              <label for="green">Green</label>
-          </li>
-           <li>
-              <input type="checkbox" value="Red" key="color" id="red" /> 
-              <label for="red">Red</label>
-          </li>
-          <li>
-            <input type="checkbox" value="Blue" key="color" id="blue" /> 
-            <label for="blue">Blue</label>
-          </li>                                                           
-        </ul>
-      </div>
-      <div>
-        <ul class="filters">
-          <li>
-            <input type="checkbox" key="sold_out" value="0" id="available" />
-            <label for="available">Available Products</label>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <select id="sort_by_filter">
-          <option selected>Sort By:</option>
-          <option value="brand">Brand</option>
-          <option value="color">Colour</option>
-          <option value="sold_out">Availability</option>
-        </select>
-      </div>
+  
+  <div id="filters-container">
+    <div class="filter">
+      <p>Filter By Brand:</p>
+      <ul>
+        <li>
+          <input type="checkbox" class="brand" id="brand-a" value="Brand A" />
+          <label for="brand-a">Brand A</label>
+        </li>
+        <li>
+          <input type="checkbox" class="brand" id="brand-b" value="Brand B" />
+          <label for="brand-b">Brand B</label>
+        </li>
+        <li>
+          <input type="checkbox" class="brand" id="brand-c" value="Brand C" />
+          <label for="brand-c">Brand C</label>
+        </li>
+        <li>
+          <input type="checkbox" class="brand" id="brand-d" value="Brand D" />
+          <label for="brand-d">Brand D</label>
+        </li>
+      </ul>
     </div>
-    <div id="products_display">
+    <div class="filter">
+      <p>Filter By Color:</p>
+      <ul>
+        <li>
+          <input type="checkbox" class="color" id="color-red" value="Red" />
+          <label for="color-red">Red</label>
+        </li>
+        <li>
+          <input type="checkbox" class="color" id="color-blue" value="Blue" />
+          <label for="color-blue">Blue</label>
+        </li>
+        <li>
+          <input type="checkbox" class="color" id="color-green" value="Green" />
+          <label for="color-green">Green</label>
+        </li>
+        <li>
+          <input type="checkbox" class="color" id="color-yellow" value="Yellow" />
+          <label for="color-yellow">Yellow</label>
+        </li>
+      </ul>
     </div>
-  </body>        
+    <div class="filter">
+      <p>Filter By Availability:</p>
+      <ul>
+        <li>
+          <input type="checkbox" class="sold_out" id="sold-out" value="0">
+          <label for="sold-out">Available Products</label>
+        </li>
+      </ul>
+    </div>
+
+    <div id="sort-products">
+      <select>
+        <option value="brand" selected>Brand</option>
+        <option value="color">Color</option>
+        <option value="sold_out">Availability</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="products-display">
+    <ul>
+    </ul>
+  </div>
+  </body>
 </html>

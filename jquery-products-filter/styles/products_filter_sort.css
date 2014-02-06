@@ -1,0 +1,7 @@
+/*styles for products filter and sort*/
+
+ul { list-style-type:none; }
+#filters-container { width:20%; float:left; }
+#products-display { width:70%; float:left; margin-left:5%; }
+#products-display ul li { float:left; width:100px; height:100px; }
+#products-display ul li img { max-width:100%; max-height:100%; }

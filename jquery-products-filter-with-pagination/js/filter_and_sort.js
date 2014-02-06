@@ -68,14 +68,15 @@ Store.prototype = {
 
     $("#show-indexes").delegate('a', 'click', function() {
       var value = Number($(this).text());
-      
+
       this_object.current_page = value - 1;
 
       if (value > this_object.current_page) {
         this_object.nextPage($('.pagination a[name=next]'));
       }
       else {
-        this_object.nextPage($('.pagination a[name=prev]'));
+        this_object.prevPage($('.pagination a[name=prev]'));
+        console.log(this_object.enableLink($('.pagination [name=next]')));
       }
 
     });
@@ -226,7 +227,6 @@ Store.prototype = {
       this.enableLink($(".pagination").find("span[name='prev']"));
       var start_item = this.item_per_page * this.current_page;
       var end_item = start_item + this.item_per_page;
-      console.log(this.current_page);
       this.showNextSlot(start_item, end_item);
       this.current_page++;
     }
