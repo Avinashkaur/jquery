@@ -66,10 +66,10 @@ ProductsStore.prototype = {
 
     $('.pagination').on('click', 'a', function() {
       if ($(this).attr('name') == 'prev') {
-        this_object.prevPage($(this));
+        this_object.prevPage();
       }
       else if ($(this).attr('name') == 'next') {
-        this_object.nextPage($(this));
+        this_object.nextPage();
       }
     });
 
@@ -78,10 +78,10 @@ ProductsStore.prototype = {
       this_object.current_page = value - 1;
 
       if (value > this_object.current_page) {
-        this_object.nextPage($('.pagination a[name=next]'));
+        this_object.nextPage();
       }
       else {
-        this_object.prevPage($('.pagination a[name=prev]'));
+        this_object.prevPage();
       }
     });
 
@@ -99,7 +99,7 @@ ProductsStore.prototype = {
     var list_length = this.list_items.length;
     this.total_pages = 0;
     this.item_per_page = this.item_per_page || this.DEFAULT_ITEM_NO_PER_PAGE;
-
+    
     if(list_length > this.item_per_page) {
       this.showNextSlot(0, this.item_per_page);
       this.total_pages = Math.ceil(list_length / this.item_per_page);
@@ -112,10 +112,7 @@ ProductsStore.prototype = {
     pages_info.empty();
 
     for (var i = 1; i <= this.total_pages; i++) {
-      var page_link = $("<a/>");
-      page_link.attr({'href': 'javascript:void(0)', 'id': 'p' + i, 'class': 'page-index'});
-      page_link.text(i);
-      pages_info.append(page_link);
+      $("<a/>").attr({'href': 'javascript:void(0)', 'id': 'p' + i, 'class': 'page-index'}).text(i).appendTo(pages_info);
     }
   },
 
@@ -127,7 +124,7 @@ ProductsStore.prototype = {
     }
   },
 
-  prevPage: function(element) {
+  prevPage: function() {
 
     if (this.current_page > 1) {
       var end_item = (this.item_per_page * this.current_page) - this.item_per_page;
@@ -138,7 +135,7 @@ ProductsStore.prototype = {
     this.highlightCurrentPageIndex();
   },
 
-  nextPage: function(element) {
+  nextPage: function() {
     
     if (this.current_page < this.total_pages) {
       var start_item = this.item_per_page * this.current_page;
@@ -150,8 +147,7 @@ ProductsStore.prototype = {
   },
 
   highlightCurrentPageIndex: function() {
-    $("#p" + this.current_page).addClass('selected');
-    $("#show-indexes :not(#p" + this.current_page + ")").removeClass('selected');
+    $("#show-indexes a").removeClass('selected').filter("#p" + this.current_page).addClass('selected');
   },
 
   displayFilteredItems: function() {
