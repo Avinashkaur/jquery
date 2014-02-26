@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/products_filter_sort.css" />
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="js/products_filter_sort_pagination.js"></script>
+  </head>
+  <body>
+  
+  <div id="filters-container">
+    <div class="filter">
+      <p>Filter By Brand:</p>
+      <ul>
+        <li>
+          <input type="checkbox" class="brand" id="brand-a" value="Brand A" name="brand-a"/>
+          <label for="brand-a">Brand A</label>
+        </li>
+        <li>
+          <input type="checkbox" class="brand" id="brand-b" value="Brand B" name="brand-b"/>
+          <label for="brand-b">Brand B</label>
+        </li>
+        <li>
+          <input type="checkbox" class="brand" id="brand-c" value="Brand C" name="brand-c"/>
+          <label for="brand-c">Brand C</label>
+        </li>
+        <li>
+          <input type="checkbox" class="brand" id="brand-d" value="Brand D" name="brand-d"/>
+          <label for="brand-d">Brand D</label>
+        </li>
+      </ul>
+    </div>
+    <div class="filter">
+      <p>Filter By Color:</p>
+      <ul>
+        <li>
+          <input type="checkbox" class="color" id="color-red" value="Red" name="color-red" />
+          <label for="color-red">Red</label>
+        </li>
+        <li>
+          <input type="checkbox" class="color" id="color-blue" value="Blue" name="color-blue" />
+          <label for="color-blue">Blue</label>
+        </li>
+        <li>
+          <input type="checkbox" class="color" id="color-green" value="Green" name="color-green" />
+          <label for="color-green">Green</label>
+        </li>
+        <li>
+          <input type="checkbox" class="color" id="color-yellow" value="Yellow" name="color-yellow" />
+          <label for="color-yellow">Yellow</label>
+        </li>
+      </ul>
+    </div>
+    <div class="filter">
+      <p>Filter By Availability:</p>
+      <ul>
+        <li>
+          <input type="checkbox" class="sold_out" id="sold-out" value="0" name="sold-out" >
+          <label for="sold-out">Available Products</label>
+        </li>
+      </ul>
+    </div>
+
+    <div id="sort-products">
+      <select>
+        <option value="brand" class="sort_by" selected id="sort-brand">Brand</option>
+        <option value="color" class="sort_by" id="sort-color">Color</option>
+        <option value="sold_out" class="sort_by" id="sort-available">Availability</option>
+      </select>
+    </div>
+    <div id="control-display">
+      <label>Number of items per page: </label>
+      <select>
+        <option class="items" id="items6">6</option>
+        <option class="items" id="items10">10</option>
+        <option class="items" id="items12">12</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="products-display">
+    <ul>
+    </ul>
+    <div class="pagination clear">
+      <div class="full-width fl clear">
+        <a href="javaScript:void(0)" name="prev">Previous</a>
+        <a href="javaScript:void(0)" name="next">Next</a>
+      </div>
+      <span id="show-indexes" class="full-width fl"></span>
+    </div>
+  </div>
+  </body>
+</html>
