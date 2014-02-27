@@ -104,7 +104,7 @@ ProductsStore.prototype = {
     });
   },
   
-  // to get the parameters after as fragment hash
+  // to get the parameters as fragment hash
   checkUrlAndLoadPage: function() {
     var url = window.location.href.split('#')[1];
     if (url) {
