@@ -35,11 +35,11 @@ ProductsStore.prototype = {
   DEFAULT_FILTER_TYPE: 'brand',
 
   params: {
+    items: 'item6',
+    sort_by : this.DEFAULT_FILTER_TYPE,
     brand: [],
     color: [],
-    sold_out: [],
-    sort_by : '',
-    items: 'item6'
+    sold_out: []
   },
   
   init: function() {
@@ -64,12 +64,12 @@ ProductsStore.prototype = {
       this_object.setParamsAndUpdateUrl($(this));
       this_object.displayFilteredItems();
       $('#control-display select').trigger('change');
-      $('#sort-products select').trigger('change');
     });
 
     // sorting dropdown
     $('#sort-products').on('change', 'select', function() {
       this_object.setParamsAndUpdateUrl($('#sort-products option:selected'));
+      $('#control-display select').trigger('change');
       this_object.sortAndDisplayElements($(this).find('option:selected').val());
     });
 
@@ -111,6 +111,7 @@ ProductsStore.prototype = {
       this.showSavedPageState(url);
     }
     else {
+      $('#sort-products select option').trigger('change');
       this.paginateItems();
     }
   },
@@ -122,9 +123,12 @@ ProductsStore.prototype = {
           key = key_value_pair[0],
           value = key_value_pair[1];
       
-      $('.' + key + '#' + value).attr('checked', true);
-      $('.' + key + '#' + value).attr('selected', true);
+      $('.' + key + '#' + value).prop('checked', true);
+      $('.' + key + '#' + value).prop('selected', true);
+
       $('#filters-container .' + key).trigger('change');
+      $("#control-display select option").trigger('change');
+
     })
   },
   
@@ -237,9 +241,11 @@ ProductsStore.prototype = {
   sortAndDisplayElements: function(filter_type) {
     var display_container = $('#products-display ul'),
         filter_type = filter_type || DEFAULT_FILTER_TYPE,
-        sorted_elements = this.sortItems(display_container.find('li'), filter_type);
+        all_elements = display_container.find('li').show(),
+        sorted_elements = this.sortItems(all_elements, filter_type);
 
     display_container.empty().append(sorted_elements);
+    $('#control-display select option').trigger('change');
   },
 
   sortItems: function(blocks, filter_type) {
